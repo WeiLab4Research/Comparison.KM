@@ -4,8 +4,8 @@
 init = function(journal_theme = "jco"){
   if(!require(pacman)) #install.packages("pacman")
   
-  #pacman::p_load(survival, survminer, ggplot2, gridExtra, customLayout, magrittr,
-  #               magrittr, ggpubr, ggsci, KMsurv, survMisc, TSHRC, surv2sample)
+  pacman::p_load(survival, survminer, ggplot2, gridExtra, customLayout, magrittr,
+                 magrittr, ggpubr, ggsci, KMsurv, survMisc, TSHRC, surv2sample)
   
   dyn.load("d:/surv2sample.dll")
   
@@ -148,7 +148,7 @@ init = function(journal_theme = "jco"){
      guides(color = FALSE) + 
      scale_size(guide = FALSE) +
      geom_point(aes(x = Methods, size = Significance, y = p_value_log10),
-                 data = subset(ptable, group == "insignificance"), color = "lightgrey") +
+                data = subset(ptable, group == "insignificance"), color = "lightgrey") +
      geom_point(aes(x = Methods, size = Significance,color = group, y = p_value_log10), 
                 data = subset(ptable, group == "A_Original")) +
      C_COLOR + C_FILL
